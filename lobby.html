@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lobby</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+
+
+
+
+    <!-- importar fontawesome -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+    <!-- importar CSS bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <!-- importar jquery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <!-- importar popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+
+    <!-- importar Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+
+
+    <script src="js/cookies.js"></script>
+
+
+    <!-- incluir las gráficas -->
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+
+            <h1 class="logo_header"><a href="lobby.html">softfields</a></h1>
+
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="lobby.html"><i class="fa fa-home site-nav--icon"></i>Menu</a></li>
+                    <li><a href="datosUsuario.html"><i class="fa fa-info site-nav--icon"></i>Datos</a></li>
+                    <li><a href="RestablecerContrase%C3%B1a.html"><i class="fa fa-cog site-nav--icon"></i>Opciones</a></li>
+
+                    <li><a onclick="cerrarSesion()" href="#"><i class="fa fa-cog site-nav--icon"></i>Cerrar Sesión</a></li>
+
+                    <li><a href="InicioSesion.html" onclick="cerrarSesion()"><i class="fa fa-cog site-nav--icon"></i>Cerrar Sesión</a></li>
+
+
+                </ul>
+            </nav>
+
+            <div class="menu-toggle">
+                <div class="hamburger"></div>
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- Aqui termina la navbar -->
+
+
+
+
+
+
+    <script>
+    var usuario = sessionStorage.getItem('Usuario');
+    if (usuario === null) {
+        window.location.href = 'index.html';
+    }
+
+    function cerrarSesion() {
+        sessionStorage.removeItem('Usuario');
+        window.location.href = 'index.html';
+    }
+
+    $(document).ready(function() {
+        $('a[href="#navbar-more-show"], .navbar-more-overlay').on('click', function(event) {
+            event.preventDefault();
+            $('body').toggleClass('navbar-more-show');
+            if ($('body').hasClass('navbar-more-show')) {
+                $('a[href="#navbar-more-show"]').closest('li').addClass('active');
+            } else {
+                $('a[href="#navbar-more-show"]').closest('li').removeClass('active');
+            }
+            return false;
+        });
+    });
+
+    </script>
+
+
+
+
+
+<script>
+	function myFunction() {
+            var x = document.getElementById("panelGraficas");
+
+            x.style.visibility = "visible";
+
+        }
+    </script>
+
+
+
+    <script>
+        
+                var usuario = sessionStorage.getItem('Usuario');
+                if (usuario === null) {
+                    window.location.href = 'index.html';
+                }
+
+                function cerrarSesion() {
+                    sessionStorage.removeItem('Usuario');
+                    window.location.href = 'index.html';
+                }
+
+                $(document).ready(function() {
+                    $('a[href="#navbar-more-show"], .navbar-more-overlay').on('click', function(event) {
+                        event.preventDefault();
+                        $('body').toggleClass('navbar-more-show');
+                        if ($('body').hasClass('navbar-more-show')) {
+                            $('a[href="#navbar-more-show"]').closest('li').addClass('active');
+                        } else {
+                            $('a[href="#navbar-more-show"]').closest('li').removeClass('active');
+                        }
+                        return false;
+                    });
+                });
+
+                
+        
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
+    </script>
+    <script>
+        $('.menu-toggle').click(function() {
+
+            $('.site-nav').toggleClass('site-nav--open', 500);
+            $(this).toggleClass('open');
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <title>Full Screen Landing Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -42,17 +44,17 @@
     <div id="loginBox">
         <h2>Login</h2>
         <i class="fa fa-times cruz" onclick="CerrarLogin(); MostrarLanding()"></i>
-        <form>
+        <form id="formulario" action="lobby.html" method="get">
             <div class="inputloginBox">
-                <input type="text" name="" required="">
+                <input type="text" id="email">
                 <label>Username</label>
             </div>
             <div class="inputloginBox">
-                <input type="password" name="" required="">
+                <input type="password" id="password">
                 <label>Password</label>
             </div>
             <a onclick="MostrarRecuperarPass(); CerrarLogin()">¿Has olvidado tu contraseña?</a><br><br>
-            <input type="submit" name="" value="Submit">
+            <input type="submit" onclick="procesarLogin()" value="Submit">
         </form>
     </div>
 
@@ -118,6 +120,44 @@
         }
 
     </script>
+    
+    <script>
+    function procesarLogin() {
+      var email = document.getElementById("email").value;
+      var contrasenya = document.getElementById("password").value;
+      if (email == "" || contrasenya == "") {
+        errorForm('Es obligatorio rellenar todos los campos');
+      } else {
+        fetch('/login?email=' + email + '&password=' + contrasenya, {
+          method: 'post'
+        }).then(function(respuesta) {
+          return respuesta.json();
+        }).then(function(son) {
+          if (son.status == 404 || son.status == 401) {
+            errorForm('Usuario o contraseña incorrecta');
+          } else {
+            sessionStorage.setItem('Usuario', JSON.stringify(son));
+            console.log(son.usuario.activo);
+            if (son.usuario.activo == 0) {
+              fetch('/volverUsuarioActivo?id=' + son.usuario.id, {
+                method: 'post'
+              });
+              window.location.href = 'RestablecerContraseña.html';
+
+            } else {
+              window.location.href = "lobby.html";
+            } //else
+          } //else
+        }) //then
+      } //else
+    } //procesarLogin
+
+    function errorForm(error) {
+      document.getElementById('mensajeError').innerHTML = error;
+      document.getElementById('mensajeError').style.visibility = 'visible';
+    }
+    
+  </script>
 
 
 </body>
