@@ -229,7 +229,7 @@ footer {
     padding: 40px;
     background: rgba(0, 0, 0, .8);
     loginBox-sizing: border-loginBox;
-    loginBox-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+    loginBox-shadow: 0 15px 25px rgba(3, 36, 54, 0.83);
     border-radius: 10px;
 }
 
@@ -336,7 +336,7 @@ footer {
         border-radius: 43px 43px 43px 43px;
         -moz-border-radius: 43px 43px 43px 43px;
         -webkit-border-radius: 43px 43px 43px 43px;
-        background-color: rgba(3, 36, 54, 0.5);
+        background-color: rgba(3, 36, 54, 0.83);
         padding: 2rem;
     }
     .content h1 {
