@@ -62,18 +62,27 @@
     <div id="RecuperarPass">
         <h3>Recuperar Contraseña</h3>
         <i class="fa fa-times cruz" onclick="OcultarRecuperarPass(); MostrarLanding()"></i>
-        <form id="formulario" class="text-faded" method="get">
+        <form id="formulario" class="text-faded" method="get" action="" onsubmit="getCorreo()" >
             <div class="inputRecuperarPass">
                 <p>Introduce tu e-mail y recibiras un correo con una nueva contraseña</p>
             </div>
             <div class="inputRecuperarPass">
-                <input type="text" name="" required="">
+                <input type="text" id="email" name="email" >
                 <label>E-mail</label>
             </div>
             <a onclick="OcultarRecuperarPass(); MostrarLogin()"><i class="fa fa-backward"></i></a>
             <input type="submit" name="" value="Submit">
         </form>
     </div>
+    
+    <script>
+    //Funcion que obtiene el correo para recuperar la cuenta
+        
+        function getCorreo() {
+            let email = document.getElementById('email').value;
+            fetch('/recuperarContrasenya?email=' + email);
+        }
+    </script>
 
 
     <footer>Copyright © Grupo 2 grado GTI</footer>
