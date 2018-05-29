@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lobby</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+
+
+
+
+    <!-- importar fontawesome -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+    <!-- importar CSS bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <!-- importar jquery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <!-- importar popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+
+    <!-- importar Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+
+
+    <script src="js/cookies.js"></script>
+
+
+    <!-- incluir las gráficas -->
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+
+            <h1 class="logo_header"><a href="lobby.html">softfields</a></h1>
+
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="lobby.html"><i class="fa fa-home site-nav--icon"></i>Menu</a></li>
+                    <li><a href="datosUsuario.html"><i class="fa fa-info site-nav--icon"></i>Datos</a></li>
+                    <li><a href="RestablecerContrase%C3%B1a.html"><i class="fa fa-cog site-nav--icon"></i>Opciones</a></li>
+<<<<<<< HEAD
+                    <li><a onclick="cerrarSesion()" href="#"><i class="fa fa-cog site-nav--icon"></i>Cerrar Sesión</a></li>
+=======
+                    <li><a href="InicioSesion.html" onclick="cerrarSesion()"><i class="fa fa-cog site-nav--icon"></i>Cerrar Sesión</a></li>
+>>>>>>> d22e31fb1554996820a4da2b381b60d2fde4d6c2
+
+
+                </ul>
+            </nav>
+
+            <div class="menu-toggle">
+                <div class="hamburger"></div>
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- Aqui termina la navbar -->
+
+
+
+    <div id="panelZonas" class="panel">
+        <h4>Zonas</h4>
+        <div class="btn-group-vertical" style="width:100%; max-width:300px">
+
+            <!-- Contenedor para el listado de zonas -->
+            <div id="listaZonas">
+               <div class="btn-group btn-group-sm" role="group" style="margin-bottom: 5px;">
+               <button class="btn btn-secondary" style="margin-bottom: 5px; margin-right: 25px; margin-left: 25px;" onclick="Todos()">Todos los campos</button>
+                </div>
+
+                <div class="btn-group btn-group-sm" role="group" style="margin-bottom: 5px;">
+                    <button class="btn btn-light" style="background-color: rgba(76, 171, 206, 0.81)" onclick="initMap()">Campo 1</button>
+                    <button class="btn btn-secondary" style="width:40px" onclick="initMap()">
+                <i class="fa fa-eye" ></i>
+            </button>
+
+                </div>
+                <div class="btn-group btn-group-sm" role="group" style="margin-bottom: 5px;">
+                    <button class="btn btn-light" style="background-color: rgba(216, 51, 30, 0.61)" onclick="Campo2()">Campo 2</button>
+                    <button class="btn btn-secondary" style="width:40px" onclick="Campo2()">
+                <i class="fa fa-eye"></i>
+            </button>
+
+                </div>
+                <div class="btn-group btn-group-sm" role="group" style="margin-bottom: 5px;">
+                    <button class="btn btn-light" style="background-color: rgba(224, 57, 134, 0.65)" onclick="Campo3()">Campo 3</button>
+                    <button class="btn btn-secondary" style="width:40px" onclick="Campo3()">
+                <i class="fa fa-eye"></i>
+            </button>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- APARTADO SENSORES -->
+        <h4>Sensores</h4>
+
+        <div class="dropdown open btn btn-secondary" style="margin-bottom: 5px; margin-right: 5px">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Campo1
+  </button>
+            <div class="dropdown-menu">
+
+                <h6 class="dropdown-header"><i class="fa fa-map-pin"></i> Sonda1</h6>
+                <a class="dropdown-item" href="#!" onclick="myFunction()"></a>
+                <a class="dropdown-item" href="#!" onclick="myFunction()"><button class="btn btn-secondary" style="margin-bottom: 5px; margin-right: 5px" onclick="myFunction()">Sensor 1</button></a>
+                <a class="dropdown-item" href="#!" onclick="myFunction()"><button class="btn btn-secondary" style="margin-bottom: 5px; margin-right: 5px" onclick="myFunction()">Sensor 2</button></a>
+                <h6 class="dropdown-header"><i class="fa fa-map-pin"></i> Sonda 2</h6><a class="dropdown-item" href="#!" onclick="myFunction()"><button class="btn btn-secondary" style="margin-bottom: 5px; margin-right: 5px" onclick="myFunction()">Sensor 4</button></a><a class="dropdown-item" href="#!" onclick="myFunction()"><button class="btn btn-secondary" style="margin-bottom: 5px; margin-right: 5px" onclick="myFunction()">Sensor 5</button></a>
+            </div>
+        </div>
+
+
+        <div class="dropdown open btn btn-secondary" style="margin-bottom: 5px; margin-right: 5px">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Campo2
+  </button>
+            <div class="dropdown-menu" style="margin-bottom: 5px; margin-right: 5px">
+
+                <h6 class="dropdown-header"><i class="fa fa-map-pin"></i> Sonda 3</h6>
+                <a class="dropdown-item" href="#!" onclick="myFunction()"></a>
+                <a class="dropdown-item" href="#!" onclick="myFunction()"><button class="btn btn-secondary" style="margin-bottom: 5px; margin-right: 5px" onclick="myFunction()">Sensor 5</button></a>
+                <a class="dropdown-item" href="#!" onclick="myFunction()"><button class="btn btn-secondary" style="margin-bottom: 5px; margin-right: 5px" onclick="myFunction()">Sensor 6</button></a>
+                <h6 class="dropdown-header"><i class="fa fa-map-pin"></i> Sonda 4</h6><a class="dropdown-item" href="#!" onclick="myFunction()"><button class="btn btn-secondary" style="margin-bottom: 5px; margin-right: 5px" onclick="myFunction()">Sensor 7</button></a><a class="dropdown-item" href="#!" onclick="myFunction()"><button class="btn btn-secondary" style="margin-bottom: 5px; margin-right: 5px" onclick="myFunction()">Sensor 8</button></a>
+            </div>
+        </div>
+
+
+        <div class="dropdown open btn btn-secondary" style="margin-bottom: 5px; margin-right: 5px">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Campo3
+  </button>
+            <div class="dropdown-menu" style="margin-bottom: 5px; margin-right: 5px">
+
+                <h6 class="dropdown-header"><i class="fa fa-map-pin"></i> Sonda 5</h6>
+                <a class="dropdown-item" href="#!" onclick="myFunction()"></a>
+                <a class="dropdown-item" href="#!" onclick="myFunction()"><button class="btn btn-secondary" style="margin-bottom: 5px; margin-right: 5px" onclick="myFunction()">Sensor 9 </button></a>
+                <a class="dropdown-item" href="#!" onclick="myFunction()"><button class="btn btn-secondary" style="margin-bottom: 5px; margin-right: 5px" onclick="myFunction()">Sensor 10</button></a>
+                <h6 class="dropdown-header"><i class="fa fa-map-pin"></i> Sonda 6</h6><a class="dropdown-item" href="#!" onclick="myFunction()"><button class="btn btn-secondary" style="margin-bottom: 5px; margin-right: 5px" onclick="myFunction()">Sensor 11</button></a><a class="dropdown-item" href="#!" onclick="myFunction()"><button class="btn btn-secondary" style="margin-bottom: 5px; margin-right: 5px" onclick="myFunction()">Sensor 12</button></a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div id="panelMapa" class="panel">
+        <div id="map" style="height: 100%; width: 100%;"></div>
+        <script>
+            function initMap() {
+                var sensor1 = {
+                    lat: 38.990796,
+                    lng: -0.170756
+
+                };
+                var sensor2 = {
+                    lat: 38.989294,
+                    lng: -0.170671,
+
+                };
+
+                var sensor3 = {
+                    lat: 38.99042,
+                    lng: -0.169591,
+
+                };
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15,
+                    center: sensor1,
+                    center: sensor2,
+                    center: sensor3,
+                    mapTypeId: 'satellite'
+
+
+                });
+
+                var marker = new google.maps.Marker({
+                    position: sensor1,
+                    map: map,
+
+                    label: '1'
+
+
+
+                });
+                var marker = new google.maps.Marker({
+                    position: sensor2,
+                    map: map,
+                    label: '2'
+                });
+                var marker = new google.maps.Marker({
+                    position: sensor3,
+                    map: map,
+                    label: '3'
+                });
+
+
+                var triangleCoords = [{
+                        lat: 38.990950,
+                        lng: -0.171377
+
+
+                    },
+                    {
+                        lat: 38.988433,
+                        lng: -0.170854
+
+
+                    },
+                    {
+                        lat: 38.988766,
+                        lng: -0.170066
+
+
+                    }, {
+                        lat: 38.989041,
+                        lng: -0.170108
+
+
+
+                    },
+                    {
+                        lat: 38.989535,
+                        lng: -0.168804
+
+
+                    }, {
+                        lat: 38.990265,
+                        lng: -0.169235
+
+
+
+                    }, {
+                        lat: 38.990398,
+                        lng: -0.168696
+
+                    }, {
+                        lat: 38.990854,
+                        lng: -0.169007
+
+
+                    }, {
+                        lat: 38.990671,
+                        lng: -0.170034
+
+
+
+                    }, {
+                        lat: 38.991140,
+                        lng: -0.170307
+
+                    }
+
+
+                ];
+
+                // Construct the polygon.
+                var bermudaTriangle = new google.maps.Polygon({
+                    paths: triangleCoords,
+                    strokeColor: '#ffe200',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 3,
+                    fillColor: '#ffff00',
+                    fillOpacity: 0.35
+                });
+                bermudaTriangle.setMap(map);
+
+            }
+
+            function Campo2() {
+                var sensor4 = {
+                    lat: 39.005868,
+                    lng: -0.183428
+
+                };
+                var sensor5 = {
+                    lat: 39.012066,
+                    lng: -0.181061
+
+                };
+
+                var sensor6 = {
+                    lat: 39.01056,
+                    lng: -0.188450
+
+
+                };
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 14,
+                    center: sensor4,
+                    center: sensor5,
+                    center: sensor6,
+                    mapTypeId: 'satellite'
+
+
+                });
+
+                var marker = new google.maps.Marker({
+                    position: sensor4,
+                    map: map,
+
+                    label: '4'
+
+
+
+                });
+                var marker = new google.maps.Marker({
+                    position: sensor5,
+                    map: map,
+                    label: '5'
+                });
+                var marker = new google.maps.Marker({
+                    position: sensor6,
+                    map: map,
+                    label: '6'
+                });
+
+
+                var triangleCoords = [{
+                        lat: 39.010720,
+                        lng: -0.189926
+                    },
+                    {
+                        lat: 39.015409,
+                        lng: -0.183763
+                    },
+                    {
+                        lat: 39.009267,
+                        lng: -0.177272
+                    }, {
+                        lat: 39.004430,
+                        lng: -0.183452
+                    }
+                ];
+
+                // Construct the polygon.
+                var bermudaTriangle = new google.maps.Polygon({
+                    paths: triangleCoords,
+                    strokeColor: '#ebff00',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 3,
+                    fillColor: '#fff500',
+                    fillOpacity: 0.35
+                });
+                bermudaTriangle.setMap(map);
+
+
+
+
+            }
+
+            function Campo3() {
+                var sensor7 = {
+                    lat: 38.985312,
+                    lng: -0.188607
+                };
+                var sensor8 = {
+                    lat: 38.985951,
+                    lng: -0.186526
+
+                };
+
+                var sensor9 = {
+                    lat: 38.984843,
+                    lng: -0.186036
+
+                };
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15,
+                    center: sensor7,
+                    center: sensor8,
+                    center: sensor9,
+                    mapTypeId: 'satellite'
+
+
+                });
+
+                var marker = new google.maps.Marker({
+                    position: sensor7,
+                    map: map,
+
+                    label: '7'
+
+
+
+                });
+                var marker = new google.maps.Marker({
+                    position: sensor8,
+                    map: map,
+                    label: '8'
+                });
+                var marker = new google.maps.Marker({
+                    position: sensor9,
+                    map: map,
+                    label: '9'
+                });
+
+
+                var triangleCoords = [{
+                        lat: 38.985686,
+                        lng: -0.189044
+
+                    },
+                    {
+                        lat: 38.984163,
+                        lng: -0.188212
+
+                    },
+                    {
+                        lat: 38.984541,
+                        lng: -0.185635
+
+                    }, {
+                        lat: 38.986127,
+                        lng: -0.186214
+
+                    }, {
+                        lat: 38.986381,
+                        lng: -0.187209
+                    }
+
+                ];
+
+                // Construct the polygon.
+                var bermudaTriangle = new google.maps.Polygon({
+                    paths: triangleCoords,
+                    strokeColor: '#ebff00',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 3,
+                    fillColor: '#fff500',
+                    fillOpacity: 0.35
+                });
+                bermudaTriangle.setMap(map);
+
+
+
+            }
+
+            function Todos() {
+
+                var sensor1 = {
+                    lat: 38.990796,
+                    lng: -0.170756
+
+                };
+                var sensor2 = {
+                    lat: 38.989294,
+                    lng: -0.170671,
+
+                };
+
+                var sensor3 = {
+                    lat: 38.99042,
+                    lng: -0.169591,
+
+                };
+
+                var sensor4 = {
+                    lat: 39.005868,
+                    lng: -0.183428
+
+                };
+                var sensor5 = {
+                    lat: 39.012066,
+                    lng: -0.181061
+
+                };
+
+                var sensor6 = {
+                    lat: 39.01056,
+                    lng: -0.188450
+
+
+                };
+
+                var sensor7 = {
+                    lat: 38.985312,
+                    lng: -0.188607
+                };
+                var sensor8 = {
+                    lat: 38.985951,
+                    lng: -0.186526
+
+                };
+
+                var sensor9 = {
+                    lat: 38.984843,
+                    lng: -0.186036
+
+                };
+
+
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 10,
+                    center: sensor1,
+                    center: sensor2,
+                    center: sensor3,
+                    center: sensor4,
+                    center: sensor5,
+                    center: sensor6,
+                    center: sensor7,
+                    center: sensor8,
+
+                    mapTypeId: 'satellite'
+
+
+                });
+
+                var marker = new google.maps.Marker({
+                    position: sensor1,
+                    map: map,
+
+                    label: '1'
+
+
+
+                });
+                var marker = new google.maps.Marker({
+                    position: sensor2,
+                    map: map,
+                    label: '2'
+                });
+                var marker = new google.maps.Marker({
+                    position: sensor3,
+                    map: map,
+                    label: '3'
+                });
+
+                var marker = new google.maps.Marker({
+                    position: sensor4,
+                    map: map,
+
+                    label: '4'
+
+
+
+                });
+                var marker = new google.maps.Marker({
+                    position: sensor5,
+                    map: map,
+                    label: '5'
+                });
+                var marker = new google.maps.Marker({
+                    position: sensor6,
+                    map: map,
+                    label: '6'
+                });
+
+                var marker = new google.maps.Marker({
+                    position: sensor7,
+                    map: map,
+
+                    label: '7'
+
+
+
+                });
+                var marker = new google.maps.Marker({
+                    position: sensor8,
+                    map: map,
+                    label: '8'
+                });
+                var marker = new google.maps.Marker({
+                    position: sensor9,
+                    map: map,
+                    label: '9'
+                });
+
+
+                
+            }
+        </script>
+    </div>
+
+        
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2Ad9zKEzUzDpIn9OM8rCW_wXzjlwD_Hc&callback=initMap">
+
+
+        </script>
+
+
+    <div id="panelGraficas" class="panel">
+        <div id="chart_div"></div>
+    </div>
+
+
+
+
+
+    <footer>Copyright © Grupo 2 grado GTI</footer>
+
+
+
+
+    <script>
+    var usuario = sessionStorage.getItem('Usuario');
+    if (usuario === null) {
+        window.location.href = '/paginas/InicioSesion.html';
+    }
+
+    function cerrarSesion() {
+        sessionStorage.removeItem('Usuario');
+        window.location.href = '/paginas/InicioSesion.html';
+    }
+
+    $(document).ready(function() {
+        $('a[href="#navbar-more-show"], .navbar-more-overlay').on('click', function(event) {
+            event.preventDefault();
+            $('body').toggleClass('navbar-more-show');
+            if ($('body').hasClass('navbar-more-show')) {
+                $('a[href="#navbar-more-show"]').closest('li').addClass('active');
+            } else {
+                $('a[href="#navbar-more-show"]').closest('li').removeClass('active');
+            }
+            return false;
+        });
+    });
+
+        google.charts.load('current', {
+            packages: ['corechart', 'line']
+        });
+        google.charts.setOnLoadCallback(drawBackgroundColor);
+
+        function drawBackgroundColor() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('number', 'X');
+            data.addColumn('number', 'Temperatura');
+            data.addRows([
+                [0, 6],
+                [1, 6],
+                [2, 6],
+                [3, 7],
+                [4, 7],
+                [5, 8],
+                [6, 9],
+                [7, 9],
+                [8, 10],
+                [9, 10],
+                [10, 12],
+                [11, 15],
+                [12, 19],
+                [13, 20],
+                [14, 21],
+                [15, 22],
+                [16, 22],
+                [17, 21],
+                [18, 19],
+                [19, 19],
+                [20, 17],
+                [21, 15],
+                [22, 13],
+                [23, 12],
+                [24, 11]
+            ]);
+            var options = {
+                hAxis: {
+                    title: 'Hora'
+                },
+                vAxis: {
+                    title: 'Tempertaura ºC '
+                },
+                backgroundColor: '#f1f8e9'
+            };
+            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
+
+<script>
+	function myFunction() {
+            var x = document.getElementById("panelGraficas");
+
+            x.style.visibility = "visible";
+
+        }
+    </script>
+
+
+<<<<<<< HEAD
+=======
+
+    <script>
+        
+                var usuario = sessionStorage.getItem('Usuario');
+                if (usuario === null) {
+                    window.location.href = '/paginas/InicioSesion.html';
+                }
+
+                function cerrarSesion() {
+                    sessionStorage.removeItem('Usuario');
+                    window.location.href = '/paginas/InicioSesion.html';
+                }
+
+                $(document).ready(function() {
+                    $('a[href="#navbar-more-show"], .navbar-more-overlay').on('click', function(event) {
+                        event.preventDefault();
+                        $('body').toggleClass('navbar-more-show');
+                        if ($('body').hasClass('navbar-more-show')) {
+                            $('a[href="#navbar-more-show"]').closest('li').addClass('active');
+                        } else {
+                            $('a[href="#navbar-more-show"]').closest('li').removeClass('active');
+                        }
+                        return false;
+                    });
+                });
+
+                
+        
+    </script>
+>>>>>>> d22e31fb1554996820a4da2b381b60d2fde4d6c2
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
+    </script>
+    <script>
+        $('.menu-toggle').click(function() {
+
+            $('.site-nav').toggleClass('site-nav--open', 500);
+            $(this).toggleClass('open');
+
+        })
+    </script>
+</body>
+
+</html>

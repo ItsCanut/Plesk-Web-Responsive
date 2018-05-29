@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cambio de contraseña</title>
+  <link rel="stylesheet" type="text/css" href="../css/index.css">
+  
+</head>
+
+<body>
+  <div class="mainBox">
+    <div>
+      <a href="/paginas/lobby.html">
+            <img src="../Imagenes/logoGTI.svg" alt="logoGTI">
+          </a>
+    </div>
+
+    <h2>Restablecer contraseña</h2>
+
+    <div>
+      <form method="get" action="">
+        Nueva contraseña:<br>
+        <input type="password" id="password">
+        <br> Repetir nueva contraseña:<br>
+        <input type="password" id="repeatpassword"><br>
+
+        <button id="botonAceptar" type="button" onclick="cambioContrasenya()" value=Cambiar>Aceptar</button>
+      </form>
+    </div>
+  </div>
+  <footer>Copyright © Grupo 2 grado GTI</footer>
+
+
+  <script>
+    var objUsuario = sessionStorage.getItem('Usuario');
+    if (objUsuario === null) {
+      window.location.href = '/paginas/InicioSesion.html'
+    }
+    var usuario = JSON.parse(objUsuario).usuario;
+
+    function cambioContrasenya() {
+      var contrasenya1 = document.getElementById("password").value;
+      var contrasenya2 = document.getElementById("repeatpassword").value;
+      if (contrasenya1 == "" || contrasenya2 == "") {
+        alert("Es obligatorio rellenar los campos");
+      } else {
+        if (contrasenya1 != contrasenya2) {
+          alert("Asegúrate que el contenido en ambos campos coincide");
+        } else {
+          fetch("/cambioContrasenya?contrasenya=" + contrasenya1 + "&id=" + usuario.id, {
+            method: 'post'
+          }).then(function(res) {
+            if (res.status == 200) {
+              alert("Cambio de contraseña exitoso");
+              window.location.href = "/paginas/lobby.html";
+            } else {
+              alert("Error de base de datos");
+              window.location.reload();
+            }
+          });
+
+          //console.log(contrasenya1 + " " + contrasenya2);
+        }
+      }
+    }
+  </script>
+
+</body>
+
+</html>
