@@ -83,6 +83,8 @@ section p {
 
 footer {
 
+    display: flex;
+    flex-direction: row;
     padding: 10px;
     text-align: center;
     color: aliceblue;
@@ -93,6 +95,19 @@ footer {
     bottom: 0px;
     font-family: 'Yantramanav', sans-serif;
     font-size: 120%;
+}
+
+footer p {
+    order: 1;
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+footer img {
+    order: 2;
+    width: 9rem;
+    height: 3rem;
+    margin: 0;
 }
 
 

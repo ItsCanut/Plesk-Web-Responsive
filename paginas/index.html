@@ -44,6 +44,7 @@
     <div id="loginBox">
         <h2>Login</h2>
         <i class="fa fa-times cruz" onclick="CerrarLogin(); MostrarLanding()"></i>
+<<<<<<< HEAD:paginas/index.html
         <form action='lobby.html' method="get">
             <div class="inputloginBox">
                 <input type="text" id="email" name="" required="">
@@ -55,6 +56,19 @@
             </div>
             <a onclick="MostrarRecuperarPass(); CerrarLogin()">¿Has olvidado tu contraseña?</a><br><br>
             <input type="submit" onclick="procesarLogin()" name="" value="Submit">
+=======
+        <form id="formulario" action="lobby.html" method="get">
+            <div class="inputloginBox">
+                <input type="text" id="email">
+                <label>Username</label>
+            </div>
+            <div class="inputloginBox">
+                <input type="password" id="password">
+                <label>Password</label>
+            </div>
+            <a onclick="MostrarRecuperarPass(); CerrarLogin()">¿Has olvidado tu contraseña?</a><br><br>
+            <input type="submit" onclick="procesarLogin()" value="Submit">
+>>>>>>> 6473602428c9307149e09056c7b0c9b982795e1d:index.html
         </form>
     </div>
 
@@ -62,21 +76,30 @@
     <div id="RecuperarPass">
         <h3>Recuperar Contraseña</h3>
         <i class="fa fa-times cruz" onclick="OcultarRecuperarPass(); MostrarLanding()"></i>
-        <form id="formulario" class="text-faded" method="get">
+        <form id="formulario" class="text-faded" method="get" action="" onsubmit="getCorreo()" >
             <div class="inputRecuperarPass">
                 <p>Introduce tu e-mail y recibiras un correo con una nueva contraseña</p>
             </div>
             <div class="inputRecuperarPass">
-                <input type="text" name="" required="">
+                <input type="text" id="email" name="email" >
                 <label>E-mail</label>
             </div>
             <a onclick="OcultarRecuperarPass(); MostrarLogin()"><i class="fa fa-backward"></i></a>
             <input type="submit" name="" value="Submit">
         </form>
     </div>
+    
+    <script>
+    //Funcion que obtiene el correo para recuperar la cuenta
+        
+        function getCorreo() {
+            let email = document.getElementById('email').value;
+            fetch('/recuperarContrasenya?email=' + email);
+        }
+    </script>
 
 
-    <footer>Copyright © Grupo 2 grado GTI</footer>
+    <footer><p>Copyright © Grupo 2 grado GTI</p> <img src="imagenes/logoGTI.svg" alt="logoGTI"></footer>
 
     <script>
         //Función para mostrar página de login y ocultar elementos de página landing al dar click en Acceder
@@ -121,6 +144,7 @@
 
     </script>
     
+<<<<<<< HEAD:paginas/index.html
     
     <script>
         function procesarLogin() {
@@ -160,6 +184,45 @@
     
     
     
+=======
+    <script>
+    function procesarLogin() {
+      var email = document.getElementById("email").value;
+      var contrasenya = document.getElementById("password").value;
+      if (email == "" || contrasenya == "") {
+        errorForm('Es obligatorio rellenar todos los campos');
+      } else {
+        fetch('/login?email=' + email + '&password=' + contrasenya, {
+          method: 'post'
+        }).then(function(respuesta) {
+          return respuesta.json();
+        }).then(function(son) {
+          if (son.status == 404 || son.status == 401) {
+            errorForm('Usuario o contraseña incorrecta');
+          } else {
+            sessionStorage.setItem('Usuario', JSON.stringify(son));
+            console.log(son.usuario.activo);
+            if (son.usuario.activo == 0) {
+              fetch('/volverUsuarioActivo?id=' + son.usuario.id, {
+                method: 'post'
+              });
+              window.location.href = 'RestablecerContraseña.html';
+
+            } else {
+              window.location.href = "lobby.html";
+            } //else
+          } //else
+        }) //then
+      } //else
+    } //procesarLogin
+
+    function errorForm(error) {
+      document.getElementById('mensajeError').innerHTML = error;
+      document.getElementById('mensajeError').style.visibility = 'visible';
+    }
+    
+  </script>
+>>>>>>> 6473602428c9307149e09056c7b0c9b982795e1d:index.html
 
 
 </body>

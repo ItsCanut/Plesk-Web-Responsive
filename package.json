@@ -1,11 +1,18 @@
 {
   "name": "plesk-web-responsive",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
+=======
+  "description": "Pagina web con acceso a la cuenta",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+>>>>>>> 6473602428c9307149e09056c7b0c9b982795e1d
   },
   "repository": {
     "type": "git",

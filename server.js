@@ -13,7 +13,11 @@ servidor.use(express.static(__dirname));
 //---------------------------------------------------------------
 servidor.use('/pagina_en_proceso/paginas', express.static(path.join(__dirname, 'public')))
 
+<<<<<<< HEAD
 servidor.post('/index', procesar_login);
+=======
+servidor.post('/login', procesar_login);
+>>>>>>> 6473602428c9307149e09056c7b0c9b982795e1d
 
 servidor.get('/index', function(peticion, respuesta) {
   respuesta.sendFile(path.join(__dirname + "/paginas/index.html"));
