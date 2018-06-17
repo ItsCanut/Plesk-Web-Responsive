@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Lobby</title>
-    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../index.css">
 
 
 
@@ -50,12 +50,12 @@
 
             <h1 class="logo_header"><a href="lobby.html">softfields</a></h1>
 
-            <nav class="site-nav">
+            <nav class="site-nav" style="z-index: 4">
                 <ul>
                     <li><a href="lobby.html"><i class="fa fa-home site-nav--icon"></i>Menu</a></li>
                     <li><a href="datosUsuario.html"><i class="fa fa-info site-nav--icon"></i>Datos</a></li>
-                    <li><a href="RestablecerContrase%C3%B1a.html"><i class="fa fa-cog site-nav--icon"></i>Opciones</a></li>
-                    <li><a href="InicioSesion.html" RestablecerContrase%C3%B1a.html ""><i class="fa fa-cog site-nav--icon"></i>Cerrar Sesión</a></li>
+                    <li><a href="opciones.html"><i class="fa fa-cog site-nav--icon"></i>Opciones</a></li>
+                    <li><a href="../index.html"><i class="fa fa-cog site-nav--icon"></i>Cerrar Sesión</a></li>
 
 
                 </ul>
@@ -95,15 +95,14 @@
         var usuario = null;
         var objUsuario = sessionStorage.getItem('Usuario');
         if (objUsuario === null) {
-            window.location.href = '/paginas/InicioSesion.html';
+            window.location.href = '../index.html';
         } else {
             usuario = JSON.parse(objUsuario).usuario;
-            console.log(usuario.nombre);
         }
 
         function cerrarSesion() {
             sessionStorage.removeItem('Usuario');
-            window.location.href = '/paginas/InicioSesion.html';
+            window.location.href = '../index.html';
         }
 
         $(document).ready(function() {

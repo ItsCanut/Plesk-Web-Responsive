@@ -1,0 +1,484 @@
+@import url("//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css");
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+
+
+body {
+    background: #F0F8EA;
+    background-size: cover;
+    font-family: 'Quicksand', sans-serif;
+}
+
+header {
+    background: #464655;
+    color: #EBEBD3;
+    padding: 1em 0;
+    position: relative;
+    z-index: 500;
+}
+
+header::after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+
+.container {
+    width: 99%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.logo_header {
+    float: left;
+    font-size: 1rem;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.logo_header span {
+    font-weight: 400;
+}
+
+
+.site-nav {
+    position: absolute;
+    background: #464655;
+    top: 100%;
+    right: 0%;
+    height: 0px;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.site-nav--open {
+    height: auto;
+}
+
+.site-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-nav li {
+    border-bottom: 1px solid #575766;
+}
+
+.site-nav li:last-child {
+    border-bottom: none;
+}
+
+.site-nav a {
+    color: #EBEBD3;
+    display: block;
+    padding: 2em 6em 2em 2.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+.site-nav a:hover,
+.site-nav a:focus {
+    background: rgba(255, 255, 255, 0.7);
+    color: #464655;
+}
+
+
+.site-nav--icon {
+    display: inline-block;
+    font-size: 1.5em;
+    margin-right: 1em;
+    width: 1.1em;
+    text-align: right;
+    color: rgba(255, 255, 255, 0.76);
+}
+
+.menu-toggle {
+    padding: 1em;
+    position: absolute;
+    top: .5em;
+    right: .5em;
+    cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    display: block;
+    background: #EBEBD3;
+    height: 3px;
+    width: 1.75em;
+    border-radius: 3px;
+    transition: all ease-in-out 500ms;
+}
+
+
+.hamburger::before {
+    transform: translateY(-7px);
+}
+
+.hamburger::after {
+    transform: translateY(4px);
+}
+
+
+
+
+.open .hamburger {
+    transform: rotate(45deg);
+}
+
+.open .hamburger::before {
+    opacity: 0;
+}
+
+.open .hamburger::after {
+    transform: translateY(-3px) rotate(-90deg);
+}
+
+
+
+
+
+
+
+#botoncito {
+    line-height: 30px;
+    font-size: 17px;
+}
+
+#myDIV {
+    max-width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    margin-top: 20px;
+    visibility: hidden;
+}
+
+
+.mainBox {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainBox > div {
+    text-align: left;
+    line-height: 30px;
+    font-size: 17px;
+    margin: 20px;
+}
+
+.button {
+    line-height: 30px;
+    font-size: 17px;
+    margin-left: 30%;
+    margin-top: 8%;
+    margin-bottom: 8%;
+}
+
+
+
+#logo {
+    align-content: center;
+}
+
+#mensajeError {
+    margin-top: 20%;
+    color: crimson;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+section {
+
+    max-width: 300px;
+    align-items: center;
+    text-align: center;
+    margin: 0px auto;
+    style: none;
+
+}
+
+
+
+#boton {
+    margin: 50px;
+}
+
+
+
+
+#botonacceder {
+    align-content: center;
+    font-size: 35px;
+    margin: 20px;
+}
+
+#mensajeError {
+    color: crimson;
+    border: ridge crimson 1px;
+}
+
+
+
+
+
+
+
+.BoxContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    height: 500px;
+}
+
+
+
+.tarjeta {
+    width: 90%;
+    margin-top: 85px;
+}
+
+
+.tarjeta-titulo {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    width: 100%;
+    display: block;
+    margin: 10px 0;
+}
+
+.tarjeta-contenido {
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff;
+    text-align: center;
+    position: relative;
+    height: 500px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: -1px 8px 33px -5px rgba(0, 0, 0, 0.75);
+}
+
+.tarjeta-contenido-izquierda {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex: 1 1 50%;
+    padding: 19px 15px;
+}
+
+
+.tarjeta-contenido-derecha {
+    flex: 1 1 50%;
+    background-color: #d9d6d5;
+    border-radius: 0 0 0 0;
+}
+
+#recuperarContra {
+    color: #000000;
+    border: ridge crimson 1px;
+}
+
+#grafica {
+    max-width: 700px;
+}
+
+
+#whiteText {
+    color: aliceblue;
+}
+
+.iconoOpciones {
+    width: 50px;
+    height: 50px;
+}
+
+
+#formulario {
+
+    text-align: center;
+}
+
+#boton_acceder {
+    margin: 30px 20px 30px;
+    font-size: 25px;
+    font-family: sans-serif;
+    border-radius: 10px;
+    background: rgba(90, 138, 214, 0.65);
+    box-shadow: 0;
+}
+
+div.banner {
+    text-align: center;
+    align-items: center;
+}
+
+#botonAceptar {
+    margin: 30px 20px 30px;
+    font-size: 25px;
+    font-family: sans-serif;
+    border-radius: 10px;
+    background: rgba(90, 138, 214, 0.65);
+    font
+}
+
+
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    color: aliceblue;
+    background-color: #464655;
+}
+
+
+
+
+
+/* -- Cabecera modo Desktop -- */
+
+@media(min-width:1008px) {
+
+
+
+
+
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .site-nav {
+        height: auto;
+        position: relative;
+        background: transparent;
+        float: right;
+    }
+
+    .site-nav li {
+        display: inline-block;
+        border: none;
+    }
+
+    .site-nav a {
+        padding: 0;
+        margin-left: 3em;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus {
+        background: rgba(255, 255, 255, 0.59);
+    }
+
+    .site-nav--icon {
+        display: none;
+    }
+}
+
+
+/* -- Elementos incluidos en el lobby -- */
+
+.panel {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 2px 5px #ccc;
+    box-sizing: border-box;
+}
+
+
+#panelZonas {
+
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 20px;
+    width: 300px;
+}
+
+
+#panelMapa {
+    position: absolute;
+    margin-top: 6px;
+    margin-bottom: 5px;
+    margin-left: 2px;
+
+}
+
+
+#panelGraficas {
+    position: absolute;
+    bottom: 100px;
+    top: 430px;
+    left: 10px;
+    right: 10px;
+    width: 95%;
+    visibility: hidden;
+}
+
+
+#menuEdicion {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    left: 320px;
+    height: 60px;
+}
+
+#panelMapa {
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    left: 320px;
+    bottom: 320px;
+}
+
+#detalle {
+    position: absolute;
+    right: 10px;
+    left: 320px;
+    bottom: 10px;
+    height: 300px;
+}
+
+
+/*======= Quitar el footer del mapa de google ============*/
+
+.gmnoprint a,
+.gmnoprint span {
+    display: none;
+}
+
+.gmnoprint div {
+    background: none !important;
+}
+
+img[src=http: //maps.gstatic.com/mapfiles/api-3/images/google_white2.png]
+    {
+    display: none
+}
+
+
+
+
+
+#listaSensoresResponsive {
+    position: absolute;
+    width: 100%;
+    bottom: 12%;
+    text-align: center;

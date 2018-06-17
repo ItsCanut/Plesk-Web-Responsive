@@ -1,24 +1,17 @@
 {
   "name": "plesk-web-responsive",
   "version": "1.0.0",
-<<<<<<< HEAD
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-=======
   "description": "Pagina web con acceso a la cuenta",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
->>>>>>> 6473602428c9307149e09056c7b0c9b982795e1d
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ItsCanut/Plesk-Web-Responsive.git"
   },
-  "author": "",
+  "author": "Carlos",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ItsCanut/Plesk-Web-Responsive/issues"
@@ -26,6 +19,8 @@
   "homepage": "https://github.com/ItsCanut/Plesk-Web-Responsive#readme",
   "dependencies": {
     "express": "^4.16.3",
+    "nodemailer": "^4.6.7",
     "sqlite3": "^4.0.0"
-  }
+  },
+  "devDependencies": {}
 }

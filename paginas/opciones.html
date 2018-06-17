@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Opciones</title>
+    <link rel="stylesheet" type="text/css" href="../index-opciones.css">
+    <link href="../nouislider.min.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+    <!-- importar fontawesome -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+    <!-- importar CSS bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <!-- importar jquery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <!-- importar popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <!-- Cargar sliders -->
+    <script src="../multirange.js"></script>
+
+    <style>
+        body {
+            font-size: 20px;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        section {
+            justify-content: center;
+        }
+
+        #icono_check_contra {
+            font-size: 4rem;
+            color: green;
+            visibility: hidden;
+        }
+
+        #icono_check_perfil {
+            font-size: 4rem;
+            color: green;
+            visibility: hidden;
+        }
+
+        /* Panel lateral*/
+
+        #panel_lateral {
+            position: fixed;
+            background: #ccc;
+            z-index: 100;
+            left: -220px;
+            transition: .5s;
+        }
+
+        #panel_lateral.visible {
+            left: 0;
+        }
+
+        /*Formulario perfil*/
+
+        #formulario_perfil {}
+
+        #formulario_perfil div {
+            margin: 3rem 0;
+        }
+
+        #formulario_perfil div form div {
+            text-align: left;
+        }
+
+        #formulario_perfil div input {
+            border-radius: 7px;
+        }
+
+        #formulario_perfil #aplicarPerfil {
+            font-size: 2rem;
+        }
+
+        /*Formulario contraseña*/
+
+        #cambiar_contrasenya {
+            margin: 3rem 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #cambiar_contrasenya form div {
+            margin: 3rem 0;
+        }
+
+        #cambiar_contrasenya form div input {
+            border-radius: 7px;
+            text-shadow: 0;
+        }
+
+        #cambiar_contrasenya #aplicar_cambios_contra {
+            font-size: 2rem;
+        }
+
+
+
+        /*Editar alarmas*/
+
+        #editar_alarmas {
+            margin: 2rem 0;
+            margin-bottom: 5rem;
+        }
+
+        #editar_alarmas #indicacion {
+            margin-bottom: 4rem;
+        }
+
+        .noUi-tooltip {
+            display: none;
+        }
+
+        .noUi-active .noUi-tooltip {
+            display: block;
+        }
+
+        #editar_alarmas pr {
+            margin: 3rem 0;
+        }
+
+
+        .sele {
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        /*Footer*/
+
+        footer {
+            margin-top: 3rem;
+            z-index: 100;
+        }
+
+        nav {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo_header"><a href="lobby.html">softfields</a></h1>
+
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="lobby.html"><i class="fa fa-home site-nav--icon"></i>Menu</a></li>
+                    <li><a href="datosUsuario.html"><i class="fa fa-info site-nav--icon"></i>Datos</a></li>
+                    <li><a href="opciones.html"><i class="fa fa-cog site-nav--icon"></i>Opciones</a></li>
+                    <li><a href="../index.html" onclick="cerrarSesion()"><i class="fa fa-cog site-nav--icon"></i>Cerrar Sesión</a></li>
+
+
+                </ul>
+            </nav>
+
+            <div class="menu-toggle">
+                <div class="hamburger"></div>
+            </div>
+        </div>
+    </header>
+    <!-- Fin del header -->
+    <section id="seccion_principal">
+        <div id="editar_perfil">
+            <form id="formulario_perfil">
+                <div id="campo_nombre">
+                    Nombre
+                    <input type="text" id="form_nombre">
+                </div>
+                <div id="campo_apellidos">
+                    Apellidos
+                    <input type="text" id="form_apellidos">
+                </div>
+                <div id="campo_empresa">
+                    Empresa
+                    <input type="text" id="form_empresa">
+                </div>
+                <div id="icono_check_perfil"><i class="fa fa-check confirmed"></i></div>
+                <input id="aplicarPerfil" type="button" value="Confirmar cambios" onclick="aplicarCambioDatos()" class="btn btn-primary">
+            </form>
+        </div>
+        <div id="cambiar_contrasenya">
+            <form onsubmit="cambioContrasenya()">
+                <div id="campo_contra1">
+                    Introduce nueva contraseña
+                    <input type="password" id="form_contra1">
+                </div>
+                <div id="campo_contra2">
+                    Repite la contraseña
+                    <input type="password" id="form_contra2">
+                </div>
+                <div id="icono_check_contra"><i class="fa fa-check confirmed"></i></div>
+                <input id="aplicar_cambios_contra" class="btn btn-primary" type="button" onclick="cambioContrasenya()" value="Aplicar nueva contraseña">
+            </form>
+        </div>
+        <div id="editar_alarmas" class="container">
+            <pr id="indicacion">Ajustar rango para notificación <br> de alertas</pr>
+            <div class="sele" id="seltemp">
+                <pr id="label_temp">Temperatura (ºC)</pr>
+                <div class="slider" id="sliderTemp"></div>
+            </div>
+            <div class="sele" id="selhumedad">
+                <pr id="label_hum">Humedad (%)</pr>
+                <div class="slider" id="sliderHum"></div>
+            </div>
+            <div class="sele" id="selsal">
+                <pr id="label_sal">Salinidad (%)</pr>
+                <div id="sliderSal"></div>
+            </div>
+            <div class="sele" id="selilu">
+                <pr id="label_ilu">Iluminación (%)</pr>
+                <div id="sliderIlu"></div>
+
+            </div>
+            <div class="sele" id="selpresion">
+                <pr id="label_presion">Presión (mB)</pr>
+                <div id="sliderPres"></div>
+            </div>
+        </div>
+    </section>
+    <footer></footer>
+    <script src="../nouislider.min.js"></script>
+    <script>
+        /*  var usuario = null;
+                                        var objUsuario = sessionStorage.getItem('Usuario');
+                                        if (objUsuario === null) {
+                                            window.location.href = '/paginas/InicioSesion.html';
+                                        } else {
+                                            usuario = JSON.parse(objUsuario).usuario;
+                                        }*/
+
+        /*   var usuario = null;
+           var objUsuario = sessionStorage.getItem('Usuario');
+           if (objUsuario === null) {
+               window.location.href = '../index.html';
+           } else {
+               usuario = JSON.parse(objUsuario).usuario;
+           }*/
+
+
+
+        var menuPerfil = document.getElementById('editar_perfil')
+        var menuContrasenya = document.getElementById('cambiar_contrasenya')
+        var menuAlarma = document.getElementById('editar_alarmas')
+
+
+        var sliderTemp = document.getElementById('sliderTemp')
+        var sliderHum = document.getElementById('sliderHum')
+        var sliderSal = document.getElementById('sliderSal')
+        var sliderIlu = document.getElementById('sliderIlu')
+        var sliderPres = document.getElementById('sliderPres')
+
+        crearSliders();
+
+
+        function cerrarSesion() {
+            sessionStorage.removeItem('Usuario');
+            window.location.href = '../index.html';
+        }
+
+        function cambioContrasenya() {
+            var contrasenya1 = document.getElementById("form_contra1").value;
+            var contrasenya2 = document.getElementById("form_contra2").value;
+            var icono_check_contrasenya = document.getElementById("icono_check_contra")
+
+            if (contrasenya1 == " " || contrasenya2 == " ") {
+                alert("Es obligatorio rellenar los campos ");
+            } else {
+                if (contrasenya1 != contrasenya2) {
+                    alert("Asegúrate que el contenido en ambos campos coincide ");
+                } else {
+                    fetch("/cambioContrasenya?contrasenya=" + contrasenya1 + " &id=" + usuario.id, {
+                        method: 'post'
+                    }).then(function(res) {
+                        if (res.status == 200) {
+                            icono_check_contrasenya.style.visibility = " visible ";
+                        } else {
+                            alert("Error de base de datos ");
+                            window.location.reload();
+                        }
+                    });
+                }
+            }
+        }
+
+        function aplicarCambioDatos() {
+            var datosDiferentes = {
+                userID: usuario.id,
+                aspectosCambiados: [],
+                cambios: []
+            };
+            let nombreChange = document.getElementById("form_nombre").value
+            let apellidosChange = document.getElementById("form_apellidos").value
+            let empresaChange = document.getElementById("form_empresa").value
+
+            if (nombreChange == "" && apellidosChange == "" && empresaChange == "") {
+                alert('Cambia al menos un aspecto antes de enviar')
+            } else {
+                if (nombreChange != usuario.nombre && nombreChange != "") {
+                    datosDiferentes.cambios.push(nombreChange)
+                    datosDiferentes.aspectosCambiados.push('nombre')
+                } else {
+                    nombreChange = usuario.nombre
+                }
+
+                if (apellidosChange != usuario.apellidos && apellidosChange != "") {
+                    datosDiferentes.cambios.push(apellidosChange)
+                    datosDiferentes.aspectosCambiados.push('apellidos')
+                    apellidosChange
+                } else {
+                    apellidosChange = usuario.apellidos
+                }
+
+                if (empresaChange != usuario.empresa && empresaChange != "") {
+                    datosDiferentes.cambios.push(empresaChange)
+                    datosDiferentes.aspectosCambiados.push('empresa')
+                } else {
+                    empresaChange = usuario.empresa
+                }
+
+                fetch('/cambioDatos', {
+                    method: 'post',
+                    body: JSON.stringify(datosDiferentes),
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function(respuesta) {
+                    if (respuesta.status == 500) {
+                        alert('Error de base de datos')
+                    } else {
+                        document.getElementById('icono_check_perfil').style.visibility = 'visible'
+                        sessionStorage.removeItem('Usuario')
+                        sessionStorage.setItem('Usuario', JSON.stringify({
+                            status: 200,
+                            usuario: {
+                                activo: usuario.activo,
+                                apellidos: apellidosChange,
+                                email: usuario.email,
+                                empresa: empresaChange,
+                                id: usuario.id,
+                                nombre: nombreChange,
+                                permisos: usuario.permisos,
+                                sexo: usuario.sexo
+                            }
+                        }))
+                    }
+                })
+
+            } //else
+        } //aplicarCambioDatos
+
+        function crearSliders() {
+            noUiSlider.create(sliderTemp, {
+                start: [0, 40],
+                connect: true,
+                step: 5,
+                tooltips: true,
+                range: {
+                    'min': -20,
+                    'max': 60
+                }
+            })
+            noUiSlider.create(sliderHum, {
+                start: [20, 80],
+                connect: true,
+                step: 5,
+                tooltips: true,
+                range: {
+                    'min': 0,
+                    'max': 100
+                }
+            })
+
+            noUiSlider.create(sliderSal, {
+                start: [20, 80],
+                connect: true,
+                step: 5,
+                tooltips: true,
+                range: {
+                    'min': 0,
+                    'max': 100
+                }
+            })
+            noUiSlider.create(sliderIlu, {
+                start: [20, 80],
+                connect: true,
+                step: 5,
+                tooltips: true,
+                range: {
+                    'min': 0,
+                    'max': 100
+                }
+            })
+            noUiSlider.create(sliderPres, {
+                start: [200, 800],
+                connect: true,
+                step: 50,
+                tooltips: true,
+                range: {
+                    'min': 0,
+                    'max': 1000
+                }
+            })
+        }
+
+        function mostrarPerfil() {
+            menuPerfil.style.visibility = 'visible'
+            menuPerfil.style.display = 'flex'
+        }
+    </script>
+    <script>
+        $('.menu-toggle').click(function() {
+
+            $('.site-nav').toggleClass('site-nav--open', 500);
+            $(this).toggleClass('open');
+
+        })
+    </script>
+</body>
+
+</html>

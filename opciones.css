@@ -1,0 +1,16 @@
+body {
+    overflow-x: hidden;
+    font-size: 300px;
+}
+
+#panel_lateral {
+    position: fixed;
+    background: #ccc;
+    z-index: 100;
+    left: -200px;
+    transition: .5s;
+}
+
+#panel_lateral.visible {
+    left: 0;
+}
